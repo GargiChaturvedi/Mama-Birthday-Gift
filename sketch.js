@@ -298,6 +298,7 @@ function draw() {
 
   if((mousePressedOver(replay) || touches.length >= 1) && gameState === "end") {
     reset();
+    console.log("hello");
   }
 
   mamaSprite.collide(invisibleGround);
