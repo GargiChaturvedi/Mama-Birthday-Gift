@@ -126,7 +126,7 @@ function draw() {
     jump.play();
   }
 
-  if (keyWentUp(UP_ARROW) && gameState === "play") {
+  if ((keyWentUp(UP_ARROW) || touches.length === 0) && gameState === "play") {
     mamaSprite.changeAnimation("walking", mamaWalking);
   }
 
