@@ -296,7 +296,7 @@ function draw() {
     win.play();
   }
 
-  if((mousePressedOver(replay) && touches.length >= 1) && gameState === "end") {
+  if((mousePressedOver(replay) || touches.length >= 1) && gameState === "end") {
     reset();
   }
 
