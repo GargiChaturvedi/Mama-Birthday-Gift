@@ -105,8 +105,8 @@ function draw() {
   background(255, 255, 255);
 
   if(gameState === "play") {
-    backdrop.setVelocity(-5, 0);
-    mamaSprite.velocityY = mamaSprite.velocityY + 0.2;
+    backdrop.setVelocity(-10, 0);
+    mamaSprite.velocityY = mamaSprite.velocityY + 0.5;
     spawnCandles();
     spawn44();
     spawnCake();
@@ -120,7 +120,7 @@ function draw() {
     backdrop.x = width / 2;
   }
 
-  if (keyDown(UP_ARROW) && gameState === "play") {
+  if ((keyDown(UP_ARROW) || touches.length >= 1) && gameState === "play") {
     mamaSprite.setVelocity(0, -10);
     mamaSprite.changeAnimation("jump", mamaJump);
     jump.play();
@@ -296,7 +296,7 @@ function draw() {
     win.play();
   }
 
-  if(mousePressedOver(replay) && gameState === "end") {
+  if((mousePressedOver(replay) && touches.length >= 1) && gameState === "end") {
     reset();
   }
 
@@ -388,4 +388,5 @@ function reset() {
   mamaSprite.scale = 0.4;
   lives = 10;
   replay.visible = false;
+  touches = [];
 }
