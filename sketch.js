@@ -120,7 +120,7 @@ function draw() {
     backdrop.x = width / 2;
   }
 
-  if ((keyDown(UP_ARROW) || touches.length >= 1) && gameState === "play") {
+  if ((keyDown(UP_ARROW) || touches.length > 0) && gameState === "play") {
     mamaSprite.setVelocity(0, -10);
     jump.play();
     touches = [];
@@ -296,7 +296,7 @@ function draw() {
     win.play();
   }
 
-  if((mousePressedOver(replay) || touches.length >= 1) && gameState === "end") {
+  if((mousePressedOver(replay) || touches.length > 0) && gameState === "end") {
     reset();
     console.log("hello");
   }
@@ -389,5 +389,4 @@ function reset() {
   mamaSprite.scale = 0.4;
   lives = 10;
   replay.visible = false;
-  touches = [];
 }
