@@ -122,12 +122,11 @@ function draw() {
 
   if ((keyDown(UP_ARROW) || touches.length >= 1) && gameState === "play") {
     mamaSprite.setVelocity(0, -10);
-    mamaSprite.changeAnimation("jump", mamaJump);
     jump.play();
     touches = [];
   }
 
-  if ((keyWentUp(UP_ARROW) || touches.length === 0) && gameState === "play") {
+  if (keyWentUp(UP_ARROW) && gameState === "play") {
     mamaSprite.changeAnimation("walking", mamaWalking);
   }
 
